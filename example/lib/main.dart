@@ -1,3 +1,4 @@
+import 'package:example/widgets/clickable_button.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,7 +10,13 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: HomeView());
+    return MaterialApp(
+      home: const HomeView(),
+      theme: ThemeData(
+        // colorScheme: const ColorScheme.dark(),
+        colorScheme: const ColorScheme.light(),
+      ),
+    );
   }
 }
 
@@ -18,10 +25,13 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [],
+        children: [
+          SizedBox(width: MediaQuery.sizeOf(context).width),
+          const ClickableButton(),
+        ],
       ),
     );
   }

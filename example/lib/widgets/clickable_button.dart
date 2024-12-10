@@ -8,11 +8,23 @@ class ClickableButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Clickable(
-      child: SizedBox(
+    return Clickable(
+      onTap: () {},
+      child: const SizedBox(
         height: 60,
-        width: 180,
-        child: ColoredBox(color: Colors.blue),
+        width: 240,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: Colors.blue,
+            borderRadius: BorderRadius.all(Radius.circular(16)),
+          ),
+          child: Center(
+            child: Text(
+              'Clickable button',
+              style: TextStyle(color: Colors.white, fontSize: 18),
+            ),
+          ),
+        ),
       ),
     );
   }
