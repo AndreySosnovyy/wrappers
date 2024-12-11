@@ -1,8 +1,5 @@
-import 'package:example/widgets/clickable_button.dart';
-import 'package:example/widgets/pressable_button.dart';
-import 'package:example/widgets/rippleble_button.dart';
-import 'package:example/widgets/wavable_button.dart';
 import 'package:flutter/material.dart';
+import 'package:wrappers/wrappers.dart';
 
 void main() {
   runApp(const App());
@@ -33,14 +30,57 @@ class HomeView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(width: MediaQuery.sizeOf(context).width),
-          const ClickableButton(),
+          Clickable(
+            onTap: () {},
+            child: const ExampleButton(label: 'Clickable button'),
+          ),
           const SizedBox(height: 32),
-          const PressableButton(),
+          Pressable(
+            onTap: () {},
+            child: const ExampleButton(label: 'Pressable button'),
+          ),
           const SizedBox(height: 32),
-          const RipplebleButton(),
+          Rippleble(
+            onTap: () {},
+            parentBorderRadius: 16,
+            rippleColor: Colors.white.withOpacity(0.4),
+            child: const ExampleButton(label: 'Rippleble button'),
+          ),
           const SizedBox(height: 32),
-          const WavableButton(),
+          Wavable(
+            onTap: () {},
+            child: const ExampleButton(label: 'Wavable button'),
+          ),
         ],
+      ),
+    );
+  }
+}
+
+class ExampleButton extends StatelessWidget {
+  const ExampleButton({
+    required this.label,
+    super.key,
+  });
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 60,
+      width: 240,
+      child: DecoratedBox(
+        decoration: const BoxDecoration(
+          color: Colors.blue,
+          borderRadius: BorderRadius.all(Radius.circular(16)),
+        ),
+        child: Center(
+          child: Text(
+            label,
+            style: const TextStyle(color: Colors.white, fontSize: 18),
+          ),
+        ),
       ),
     );
   }
