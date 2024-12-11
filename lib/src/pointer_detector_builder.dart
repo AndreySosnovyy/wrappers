@@ -12,10 +12,12 @@ typedef PointChangedCallback = void Function(bool isPointed);
 /// {@template point_detector_builder}
 /// Widget that build child via builder that rebuilds evert time it is being
 /// pointed or leaved by pointer.
+///
+/// This builder must have size defined to work properly.
 /// {@endtemplate}
-class PointDetectorBuilder extends StatefulWidget {
+class PointerDetectorBuilder extends StatefulWidget {
   /// {@macro point_detector_builder}
-  const PointDetectorBuilder({
+  const PointerDetectorBuilder({
     required this.builder,
     this.onChanged,
     this.shape = BoxShape.rectangle,
@@ -36,11 +38,11 @@ class PointDetectorBuilder extends StatefulWidget {
   final Widget? placeholder;
 
   @override
-  State<PointDetectorBuilder> createState() => _PointDetectorBuilderState();
+  State<PointerDetectorBuilder> createState() => _PointerDetectorBuilderState();
 }
 
-class _PointDetectorBuilderState extends State<PointDetectorBuilder> {
-  bool _isPointed = true;
+class _PointerDetectorBuilderState extends State<PointerDetectorBuilder> {
+  bool _isPointed = false;
 
   final initializeCompleter = Completer<void>();
 
