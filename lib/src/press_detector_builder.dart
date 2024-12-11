@@ -11,6 +11,7 @@ class PressDetectorBuilder extends StatefulWidget {
   const PressDetectorBuilder({
     required this.builder,
     this.onTap,
+    this.onLongPress,
     this.onPressStart,
     this.onPressEnd,
     super.key,
@@ -21,6 +22,9 @@ class PressDetectorBuilder extends StatefulWidget {
 
   /// Callback that will be triggered when widget created via [builder] was tapped.
   final VoidCallback? onTap;
+
+  /// Callback that will be triggered when widget created via [builder] was long pressed.
+  final VoidCallback? onLongPress;
 
   /// Callback that will be triggered when widget created via [builder] was pressed.
   final VoidCallback? onPressStart;
@@ -40,6 +44,7 @@ class _PressDetectorBuilderState extends State<PressDetectorBuilder> {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: widget.onTap,
+      onLongPress: widget.onLongPress,
       onPanStart: (_) => setState(() {
         widget.onPressStart?.call();
         _isPressed = true;

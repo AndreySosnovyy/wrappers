@@ -1,6 +1,6 @@
-import 'package:example/widgets/custom_button.dart';
+import 'package:example/widgets/clickable_button.dart';
+import 'package:example/widgets/pressable_button.dart';
 import 'package:flutter/material.dart';
-import 'package:wrappers/wrappers.dart';
 
 void main() {
   runApp(const App());
@@ -31,16 +31,9 @@ class HomeView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(width: MediaQuery.sizeOf(context).width),
-          const CustomButton(),
+          const ClickableButton(),
           const SizedBox(height: 32),
-          Disabler(
-            enabled: false,
-            child: Container(
-              height: 60,
-              width: 240,
-              color: Colors.red,
-            ),
-          ),
+          const PressableButton(),
         ],
       ),
     );
