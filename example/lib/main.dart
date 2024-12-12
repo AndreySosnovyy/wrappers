@@ -49,6 +49,8 @@ class HomeView extends StatelessWidget {
           const SizedBox(height: 32),
           Wavable(
             onTap: () {},
+            waveColor: Colors.blue,
+            borderRadius: const BorderRadius.all(Radius.circular(16)),
             child: const ExampleButton(label: 'Wavable button'),
           ),
         ],
